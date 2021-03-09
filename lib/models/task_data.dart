@@ -3,6 +3,11 @@ import 'package:todoey_flutter/models/task.dart';
 import 'dart:collection';
 
 class TaskData extends ChangeNotifier {
+  bool first = false;
+  TaskData({this.first});
+
+
+
   List<Task> _tasks = [
     Task(name: 'Buy milk'),
     Task(name: 'Buy eggs'),
