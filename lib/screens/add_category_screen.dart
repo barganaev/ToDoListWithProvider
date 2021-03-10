@@ -20,7 +20,7 @@ class AddCategoryScreen extends StatelessWidget {
         children: [
           TextField(
             // controller: textEditingController,
-            autofocus: true,
+            //autofocus: true,
             onChanged: (newCategory) {
               newCategoryTitle = newCategory;
             },
@@ -30,6 +30,7 @@ class AddCategoryScreen extends StatelessWidget {
             ),
           ),
           ElevatedButton(
+            child: Text('Add'),
             onPressed: () {
               //Navigator.push(context, MaterialPageRoute(builder: (context) => CategoriesList() /*CategoryTaskScreen()*/));
               if(newCategoryTitle != ""){

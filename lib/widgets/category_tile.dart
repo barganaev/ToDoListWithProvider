@@ -40,22 +40,11 @@ class CategoryContainer extends StatelessWidget {
 
   CategoryContainer({this.isChecked, this.categoryTitle, this.checkboxCallback, this.longPressCallback});
 
-// class CategoryTile extends StatelessWidget {
-//   final bool isChecked;
-//   final String categoryTitle;
-//   final Function checkboxCallback;
-//   final Function longPressCallback;
-//
-//   CategoryTile(
-//       {this.isChecked,
-//         this.categoryTitle,
-//         this.checkboxCallback,
-//         this.longPressCallback});
 
   @override
   Widget build(BuildContext context) {
     // taskData = Provider.of<TaskData>(context);
-    return InkWell(
+    return GestureDetector(
       onTap: (){
         Navigator.push(context, MaterialPageRoute(builder: (newcontext) => ChangeNotifierProvider.value(
             value: Provider.of<TaskData>(context),
@@ -83,12 +72,6 @@ class CategoryContainer extends StatelessWidget {
                           //leading: Icon(Icons.all_inbox, color: Colors.blue,),
                           title: Text(categoryTitle, style: GoogleFonts.hind(fontSize: 22, fontWeight: FontWeight.w600),),
                           subtitle: Text('${Provider.of<TaskData>(context).taskCount} Tasks'),
-                          //trailing: Icon(Icons.more_vert),
-                          // onTap: () {
-                          //   //Navigator.of(context).push(TasksScreen());
-                          //   // taskData = Provider.of<TaskData>(context);
-                          //
-                          // },
                         ),
                       ),
                     ),
@@ -97,19 +80,5 @@ class CategoryContainer extends StatelessWidget {
               )
             ),
     );
-
-    // return ListTile(
-    //   onLongPress: longPressCallback,
-    //   title: Text(
-    //     categoryTitle,
-    //     style: TextStyle(
-    //         decoration: isChecked ? TextDecoration.lineThrough : null),
-    //   ),
-    //   trailing: Checkbox(
-    //     activeColor: Colors.lightBlueAccent,
-    //     value: isChecked,
-    //     onChanged: checkboxCallback,
-    //   ),
-    // );
   }
 }

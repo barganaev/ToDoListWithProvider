@@ -15,14 +15,15 @@ class TasksScreen extends StatelessWidget {
   TasksScreen({@required this.newCategoryTitle});
   // TaskData taskData;
   // TasksScreen({this.taskData});
-
+  int cnt=0;
   @override
   Widget build(BuildContext context) {
-    print(Provider.of<TaskData>(context).tasks.first.name);
+    print("jackson bek ${this.cnt++}");
+    // print(Provider.of<TaskData>(context).tasks.first.name);
     return Scaffold(
-      backgroundColor: Colors.lightBlue[600],
+      backgroundColor: Color(0xFF5786FF),
       floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.lightBlue[600],
+          backgroundColor: Color(0xFF5786FF),
           child: Icon(Icons.add),
           onPressed: () {
             showModalBottomSheet(
@@ -47,11 +48,11 @@ class TasksScreen extends StatelessWidget {
             children: [
               Padding(
                 padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.05, left: MediaQuery.of(context).size.width * 0.04),
-                child: Expanded(flex: 1, child: IconButton(color: Colors.white, icon: Icon(Icons.arrow_back_ios), onPressed: () { Navigator.pop(context);})),
+                child: IconButton(color: Colors.white, icon: Icon(Icons.arrow_back_ios), onPressed: () { Navigator.pop(context);}),
               ),
               Padding(
                 padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.05, left: MediaQuery.of(context).size.width * 0.75),
-                child: Expanded(flex: 1,child: Align(alignment: Alignment.topRight, child: Icon(Icons.more_vert, color: Colors.white,))),
+                child: Align(alignment: Alignment.topRight, child: Icon(Icons.more_vert, color: Colors.white,)),
               ),
             ],
           ),
@@ -63,11 +64,6 @@ class TasksScreen extends StatelessWidget {
               children: <Widget>[
                 CircleAvatar(
                   child: categoryIcons(newCategoryTitle),
-                  /*Icon(
-                    Icons.list,
-                    size: 30.0,
-                    color: Colors.lightBlueAccent,
-                  ),*/
                   backgroundColor: Colors.white,
                   radius: 30.0,
                 ),
@@ -92,14 +88,15 @@ class TasksScreen extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(
+
+
+          Flexible(
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.8,
-              width: MediaQuery.of(context).size.width,
+              // height: MediaQuery.of(context).size.height*0.8,
+              // width: MediaQuery.of(context).size.width,
               //padding: EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
-                color: Colors.red,
-                // color: Colors.white,
+                color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20.0),
                   topRight: Radius.circular(20.0),
@@ -108,6 +105,25 @@ class TasksScreen extends StatelessWidget {
               child: TasksList(),
             ),
           ),
+
+
+
+          // Expanded(
+          //   child: Container(
+          //     height: MediaQuery.of(context).size.height * 0.8,
+          //     width: MediaQuery.of(context).size.width,
+          //     //padding: EdgeInsets.symmetric(horizontal: 20.0),
+          //     decoration: BoxDecoration(
+          //       color: Colors.red,
+          //       // color: Colors.white,
+          //       borderRadius: BorderRadius.only(
+          //         topLeft: Radius.circular(20.0),
+          //         topRight: Radius.circular(20.0),
+          //       ),
+          //     ),
+          //     child: TasksList(),
+          //   ),
+          // ),
         ],
       ),
     );

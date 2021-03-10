@@ -6,10 +6,9 @@ import 'package:todoey_flutter/models/task_data.dart';
 class AddTaskScreen extends StatelessWidget {
   TaskData taskData;
   AddTaskScreen({this.taskData});
-
+  String newTaskTitle = "";
   @override
   Widget build(BuildContext context) {
-    String newTaskTitle = "";
 
     return Container(
       color: Color(0xff757575),
@@ -40,6 +39,15 @@ class AddTaskScreen extends StatelessWidget {
               onChanged: (newText) {
                 newTaskTitle = newText;
               },
+              onSubmitted: (str){
+                newTaskTitle = str;
+                FocusScope.of(context).unfocus();
+                if(str != ""){
+                  // print(Provider.of<TaskData>(context, listen: false).tasks.first.name);
+                  Provider.of<TaskData>(context, listen: false).addTask(str);
+                }
+                Navigator.pop(context);
+              },
             ),
             FlatButton(
               child: Text(
@@ -50,13 +58,13 @@ class AddTaskScreen extends StatelessWidget {
               ),
               color: Colors.lightBlueAccent,
               onPressed: () {
+                print(newTaskTitle);
                 FocusScope.of(context).unfocus();
                 if(newTaskTitle != ""){
                   print(newTaskTitle);
-                  print(Provider.of<TaskData>(context, listen: false).tasks.first.name);
+                  // print(Provider.of<TaskData>(context, listen: false).tasks.first.name);
                   Provider.of<TaskData>(context, listen: false).addTask(newTaskTitle);
                 }
-
                 Navigator.pop(context);
               },
             ),

@@ -21,7 +21,9 @@ class CategoriesList extends StatelessWidget {
 
             return ChangeNotifierProvider(
               create: (context) => TaskData(),
-              child: CategoryContainer(
+              child:
+              // Text('123')
+              CategoryContainer(
                 categoryTitle: category.category,
                 isChecked: category.isDone,
                 checkboxCallback: (checkboxState) {

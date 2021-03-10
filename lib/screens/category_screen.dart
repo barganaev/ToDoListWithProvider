@@ -8,14 +8,15 @@ import 'package:provider/provider.dart';
 
 
 class CategoryScreen extends StatelessWidget {
-
+  int cnt =0;
   @override
   Widget build(BuildContext context) {
+    print("counter of catefory${cnt++}");
     return Scaffold(
       backgroundColor: Colors.white,
       //backgroundColor: Colors.lightBlueAccent,
       floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.lightBlue[600],
+          backgroundColor: Color(0xFF5786FF),
           child: Icon(Icons.add),
           onPressed: () {
             Navigator.of(context).push(
@@ -29,7 +30,7 @@ class CategoryScreen extends StatelessWidget {
         children: <Widget>[
           Container(
             padding: EdgeInsets.only(
-                top: 60.0, left: 30.0, right: 30.0),
+                top: 30.0, left: 30.0, right: 30.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -61,146 +62,28 @@ class CategoryScreen extends StatelessWidget {
                     fontSize: 18,
                   ),
                 ),
-
-
-
-
-                // Container(
-                //   height: MediaQuery.of(context).size.height /* * 0.5*/,
-                //   width: MediaQuery.of(context).size.width,
-                  /*child: Expanded(
-                    child:*/ Container(
-                      height: MediaQuery.of(context).size.height*0.6,
-                      // height: MediaQuery.of(context).size.height*0.6925,
-                        width: MediaQuery.of(context).size.width,
-                      //padding: EdgeInsets.symmetric(horizontal: 20.0),
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        // color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20.0),
-                          topRight: Radius.circular(20.0),
-                        ),
-                      ),
-                      child: CategoriesList(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.05,
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height*0.6,
+                    width: MediaQuery.of(context).size.width,
+                  //padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  decoration: BoxDecoration(
+                    // color: Colors.red,
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20.0),
+                      topRight: Radius.circular(20.0),
                     ),
-                  //),
-                //),
+                  ),
+                  child:
+                  // Text("111"),
+                  CategoriesList(),
+                ),
               ],
             ),
           ),
-          // Expanded(
-          //   child: Container(
-          //     padding: EdgeInsets.symmetric(horizontal: 20.0),
-          //     decoration: BoxDecoration(
-          //       color: Colors.white,
-          //       borderRadius: BorderRadius.only(
-          //         topLeft: Radius.circular(20.0),
-          //         topRight: Radius.circular(20.0),
-          //       ),
-          //     ),
-          //     child: TasksList(),
-          //   ),
-          // ),
-
-
-
-
-
-          // SingleChildScrollView(
-          //   child: Wrap(
-          //     alignment: WrapAlignment.start,
-          //     direction: Axis.horizontal,
-          //     children: [
-          //       Container(
-          //         width: MediaQuery.of(context).size.width * 0.5,
-          //         child: Card(
-          //           elevation: 10,
-          //           child: ListTile(
-          //             leading: Icon(Icons.all_inbox, color: Colors.blue,),
-          //             title: Text('1 Category'),
-          //             subtitle: Text('${Provider.of<TaskData>(context).taskCount} Tasks'),
-          //             //trailing: Icon(Icons.more_vert),
-          //             onTap: () {
-          //               Navigator.of(context).push(_createRoute());
-          //               // Navigator.push(
-          //               //   context,
-          //               //   MaterialPageRoute(builder: (context) => TasksScreen()),
-          //               // );
-          //             },
-          //           ),
-          //         )
-          //       ),
-          //       Container(
-          //         width: MediaQuery.of(context).size.width * 0.5,
-          //         child: Card(
-          //           elevation: 10,
-          //           child: ListTile(
-          //             leading: Icon(Icons.all_inbox, color: Colors.orange,),
-          //             title: Text('2 Category'),
-          //             subtitle: Text('X Tasks'),
-          //             //trailing: Icon(Icons.more_vert),
-          //           ),
-          //         ),
-          //       ),
-          //       Container(
-          //         width: MediaQuery.of(context).size.width * 0.5,
-          //         child: Card(
-          //           elevation: 10,
-          //           child: ListTile(
-          //             leading: Icon(Icons.all_inbox, color: Colors.red,),
-          //             title: Text('3 Category'),
-          //             subtitle: Text('X Tasks'),
-          //             //trailing: Icon(Icons.more_vert),
-          //           ),
-          //         ),
-          //       ),
-          //       Container(
-          //           width: MediaQuery.of(context).size.width * 0.5,
-          //           child: Card(
-          //             elevation: 10,
-          //             child: ListTile(
-          //               leading: Icon(Icons.all_inbox, color: Colors.green,),
-          //               title: Text('4 Category'),
-          //               subtitle: Text('X Tasks'),
-          //               //trailing: Icon(Icons.more_vert),
-          //             ),
-          //           )
-          //       ),
-          //       Container(
-          //         width: MediaQuery.of(context).size.width * 0.5,
-          //         child: Card(
-          //           elevation: 10,
-          //           child: ListTile(
-          //             leading: Icon(Icons.all_inbox, color: Colors.purple,),
-          //             title: Text('5 Category'),
-          //             subtitle: Text('X Tasks'),
-          //             //trailing: Icon(Icons.more_vert),
-          //           ),
-          //         ),
-          //       ),
-          //       Container(
-          //         width: MediaQuery.of(context).size.width * 0.5,
-          //         child: Card(
-          //           elevation: 10,
-          //           child: ListTile(
-          //             leading: Icon(Icons.all_inbox, color: Colors.red,),
-          //             title: Text('6 Category'),
-          //             subtitle: Text('X Tasks'),
-          //             //trailing: Icon(Icons.more_vert),
-          //           ),
-          //         ),
-          //       ),
-          //     ],
-          //   ),
-          // )
-
-
-
-
-
-
-
         ],
       ),
     );
